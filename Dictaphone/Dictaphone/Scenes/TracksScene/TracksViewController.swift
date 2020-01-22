@@ -54,4 +54,11 @@ extension TracksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return TracksCell.cellHeight
     }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+      if editingStyle == .delete {
+        TracksStorageManager.deleteFile(atIndex: indexPath.row)
+        self.tracksView.tableView.deleteRows(at: [indexPath], with: .automatic)
+      }
+    }
 }

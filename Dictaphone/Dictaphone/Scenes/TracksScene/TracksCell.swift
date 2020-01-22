@@ -34,14 +34,13 @@ class TracksCell: UITableViewCell {
     func layoutContent(in: UIView) {
 
         playImageView = layout(UIImageView()) { make in
-            make.top.equalToSuperview().offset(margin)
-            make.trailing.bottom.equalToSuperview().offset(-margin)
+            make.top.equalTo(safeArea).offset(margin)
+            make.trailing.equalTo(safeArea).offset(-margin)
             make.height.width.equalTo(buttonSideValue)
         }
 
         nameLabel = layout(UILabel()) { make in
-            make.top.leading.equalToSuperview().offset(margin)
-            make.bottom.equalToSuperview().offset(-margin)
+            make.top.leading.equalTo(safeArea).offset(margin)
             make.trailing.equalTo(playImageView.leading).offset(-margin)
         }
 

@@ -10,6 +10,12 @@ import UIKit
 import SnapKit
 
 extension UIView {
+    var safeArea: UILayoutGuide {
+        return self.safeAreaLayoutGuide
+    }
+}
+
+extension UIView {
     
     func layout<T: UIView>(
         _ subview: T,
