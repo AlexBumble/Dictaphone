@@ -25,6 +25,7 @@
 		81D1A6C523D868AA00531453 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D1A6C423D868AA00531453 /* AVFoundation.framework */; };
 		81D1A6C723D885D900531453 /* TracksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1A6C623D885D900531453 /* TracksView.swift */; };
 		81D1A6C923D8876500531453 /* TracksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1A6C823D8876500531453 /* TracksCell.swift */; };
+		81D1A6CC23D8976B00531453 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1A6CB23D8976B00531453 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		81D1A6C423D868AA00531453 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		81D1A6C623D885D900531453 /* TracksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksView.swift; sourceTree = "<group>"; };
 		81D1A6C823D8876500531453 /* TracksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksCell.swift; sourceTree = "<group>"; };
+		81D1A6CB23D8976B00531453 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 		8167017D23D8109D002526D6 /* Dictaphone */ = {
 			isa = PBXGroup;
 			children = (
+				81D1A6CA23D8975C00531453 /* View */,
 				81D1A6BE23D85BBD00531453 /* TraсksManager */,
 				816701A023D825C0002526D6 /* Extensions */,
 				8167019A23D822F9002526D6 /* Scenes */,
@@ -147,6 +150,14 @@
 				81D1A6C423D868AA00531453 /* AVFoundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		81D1A6CA23D8975C00531453 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				81D1A6CB23D8976B00531453 /* Theme.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +243,7 @@
 				8167019923D81C4A002526D6 /* TracksViewController.swift in Sources */,
 				8167019523D816D0002526D6 /* DictaphoneTabBarController.swift in Sources */,
 				81D1A6C723D885D900531453 /* TracksView.swift in Sources */,
+				81D1A6CC23D8976B00531453 /* Theme.swift in Sources */,
 				8167019323D81330002526D6 /* RootViewController .swift in Sources */,
 				81D1A6C223D85C0900531453 /* TraсksDataModel.swift in Sources */,
 				816701A423D8284A002526D6 /* RecordView.swift in Sources */,

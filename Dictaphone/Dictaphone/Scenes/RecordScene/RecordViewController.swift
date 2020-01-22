@@ -42,7 +42,6 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
 }
 
 // MARK: Rx Setup
-
 private extension RecordViewController {
 
     func startRecordButtonBind() {
