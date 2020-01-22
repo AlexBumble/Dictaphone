@@ -42,7 +42,7 @@ class RecordView: UIView {
     func layoutContent(in view: UIView) {
 
         startRecordButton = layout(UIButton()) { make in
-            make.height.width.equalTo(buttonSideValue * 1.5)
+            make.height.width.equalTo(buttonSideValue)
             make.bottom.equalTo(view.bottom).offset(-buttonsBottomOffser)
             make.centerX.equalToSuperview()
         }

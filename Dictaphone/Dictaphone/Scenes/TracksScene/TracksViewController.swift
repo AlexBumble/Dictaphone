@@ -28,13 +28,25 @@ class TracksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        isNeedToShowEmptyLable()
         tracksView.tableView.register(TracksCell.self, forCellReuseIdentifier: TracksCell.identifier)
         tracksView.tableView.delegate = self
         tracksView.tableView.dataSource = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        isNeedToShowEmptyLable()
         tracksView.tableView.reloadData()
+    }
+
+    func isNeedToShowEmptyLable() {
+        if TracksStorageManager.count == 0 {
+            tracksView.tableView.isHidden = true
+            tracksView.emptyLabel.isHidden = false
+        } else {
+            tracksView.tableView.isHidden = false
+            tracksView.emptyLabel.isHidden = true
+        }
     }
 }
 
@@ -56,9 +68,10 @@ extension TracksViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-      if editingStyle == .delete {
-        TracksStorageManager.deleteFile(atIndex: indexPath.row)
-        self.tracksView.tableView.deleteRows(at: [indexPath], with: .automatic)
-      }
+        if editingStyle == .delete {
+            TracksStorageManager.deleteFile(atIndex: indexPath.row)
+            self.tracksView.tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        isNeedToShowEmptyLable()
     }
 }

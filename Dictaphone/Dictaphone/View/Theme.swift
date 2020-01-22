@@ -43,11 +43,17 @@ enum Theme {
         }
     }
 
+    static var fontColor: UIColor {
+        switch current {
+        case .light: return .black
+        case .dark: return .white
+        }
+    }
+
     static func setTheme(interfaceStyle: UIUserInterfaceStyle?) {
         switch interfaceStyle {
         case .light, .unspecified: Theme.current = .light
         default: Theme.current = .dark
         }
     }
-
 }
