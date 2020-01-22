@@ -36,9 +36,11 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
 
         recordView.stopRecordButton.isHidden = true
         recordView.pauseRecordButton.isHidden = true
+        recordView.resumeRecordButton.isHidden = true
         startRecordButtonBind()
         stopRecordButtonBind()
         pauseBind()
+        resumeBind()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -79,7 +81,16 @@ private extension RecordViewController {
 
     func pauseBind() {
         recordView.pauseRecordButton.rx.tap.bind {
-            //ToDo
+            self.recordView.resumeRecordButton.isHidden = false
+            self.recordView.pauseRecordButton.isHidden = true
+        }
+        .disposed(by: disposeBag)
+    }
+
+    func resumeBind() {
+        recordView.pauseRecordButton.rx.tap.bind {
+            self.recordView.resumeRecordButton.isHidden = true
+            self.recordView.pauseRecordButton.isHidden = false
         }
         .disposed(by: disposeBag)
     }

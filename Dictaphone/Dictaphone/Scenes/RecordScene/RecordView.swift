@@ -20,6 +20,7 @@ class RecordView: UIView {
     var startRecordButton: UIButton!
     var stopRecordButton: UIButton!
     var pauseRecordButton: UIButton!
+    var resumeRecordButton: UIButton!
 
     // Layout Propertise
     private var buttonSideValue: CGFloat = 70
@@ -57,12 +58,19 @@ class RecordView: UIView {
             make.bottom.equalTo(view.bottom).offset(-buttonsBottomOffser)
             make.centerX.equalToSuperview().offset(centerXOffset)
         }
+
+        resumeRecordButton = layout(UIButton()) { make in
+            make.height.width.equalTo(buttonSideValue)
+            make.bottom.equalTo(view.bottom).offset(-buttonsBottomOffser)
+            make.centerX.equalToSuperview().offset(centerXOffset)
+        }
     }
 
     func applyStyle() {
         startRecordButton.setBackgroundImage(Theme.addRecord, for: .normal)
         stopRecordButton.setBackgroundImage(Theme.stopRecordButton, for: .normal)
         pauseRecordButton.setBackgroundImage(Theme.pauseRecordButton, for: .normal)
+        resumeRecordButton.setBackgroundImage(Theme.startButton, for: .normal)
 
     }
 }

@@ -13,6 +13,8 @@ import AVFoundation
 protocol Recording {
     func recordAudio()
     func stopRecordingAudio()
+    func pauseRecordingAudio()
+    func resume()
 }
 
 class RecordModel: NSObject, AVAudioRecorderDelegate {
@@ -66,5 +68,13 @@ extension RecordModel: Recording {
     func stopRecordingAudio() {
         audioRecorder.stop()
         try! AVAudioSession.sharedInstance().setActive(false)
+    }
+
+    func pauseRecordingAudio() {
+        audioRecorder.pause()
+    }
+
+    func resume() {
+        audioRecorder.record()
     }
 }
