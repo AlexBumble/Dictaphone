@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		8167019523D816D0002526D6 /* DictaphoneTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167019423D816D0002526D6 /* DictaphoneTabBarController.swift */; };
 		8167019723D81C29002526D6 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167019623D81C29002526D6 /* RecordViewController.swift */; };
 		8167019923D81C4A002526D6 /* TracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167019823D81C4A002526D6 /* TracksViewController.swift */; };
+		8167019F23D825AA002526D6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8167019E23D825AA002526D6 /* SnapKit */; };
+		816701A223D825FB002526D6 /* UIView + SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816701A123D825FB002526D6 /* UIView + SnapKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8167019F23D825AA002526D6 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +97,14 @@
 			path = Traks;
 			sourceTree = "<group>";
 		};
+		816701A023D825C0002526D6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				816701A123D825FB002526D6 /* UIView + SnapKit.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,6 +121,9 @@
 			dependencies = (
 			);
 			name = Dictaphone;
+			packageProductDependencies = (
+				8167019E23D825AA002526D6 /* SnapKit */,
+			);
 			productName = Dictaphone;
 			productReference = 8167017B23D8109D002526D6 /* Dictaphone.app */;
 			productType = "com.apple.product-type.application";
@@ -138,6 +152,9 @@
 				Base,
 			);
 			mainGroup = 8167017223D8109C002526D6;
+			packageReferences = (
+				8167019D23D825AA002526D6 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 8167017C23D8109D002526D6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -358,6 +375,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8167019D23D825AA002526D6 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8167019E23D825AA002526D6 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8167019D23D825AA002526D6 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8167017323D8109C002526D6 /* Project object */;
 }
