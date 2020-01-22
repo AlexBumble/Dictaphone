@@ -28,6 +28,7 @@
 		8167019423D816D0002526D6 /* DictaphoneTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictaphoneTabBarController.swift; sourceTree = "<group>"; };
 		8167019623D81C29002526D6 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		8167019823D81C4A002526D6 /* TracksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksViewController.swift; sourceTree = "<group>"; };
+		816701A123D825FB002526D6 /* UIView + SnapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + SnapKit.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +62,7 @@
 		8167017D23D8109D002526D6 /* Dictaphone */ = {
 			isa = PBXGroup;
 			children = (
+				816701A023D825C0002526D6 /* Extensions */,
 				8167019A23D822F9002526D6 /* Scenes */,
 				8167017E23D8109D002526D6 /* AppDelegate.swift */,
 				8167018723D8109E002526D6 /* Assets.xcassets */,
@@ -186,6 +188,7 @@
 				8167019323D81330002526D6 /* RootViewController .swift in Sources */,
 				8167019723D81C29002526D6 /* RecordViewController.swift in Sources */,
 				8167017F23D8109D002526D6 /* AppDelegate.swift in Sources */,
+				816701A223D825FB002526D6 /* UIView + SnapKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
