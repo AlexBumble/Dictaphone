@@ -26,6 +26,7 @@ class RecordView: UIView {
     private var buttonWidth: CGFloat = 70
     private var buttonsBottomOffser: CGFloat = 140
     private var margin: CGFloat = 16
+    private var centerXOffset: CGFloat = 48
 
     init() {
         super.init(frame: .zero)
@@ -41,24 +42,24 @@ class RecordView: UIView {
     func layoutContent(in view: UIView) {
 
         startRecordButton = layout(UIButton()) { make in
-            make.height.equalTo(buttonHeight)
-            make.width.equalTo(buttonWidth)
+            make.height.equalTo(buttonHeight * 1.5)
+            make.width.equalTo(buttonWidth * 1.5)
             make.bottom.equalTo(view.bottom).offset(-buttonsBottomOffser)
-            make.centerX.equalToSuperview().offset(-margin * 3)
+            make.centerX.equalToSuperview()
         }
 
         stopRecordButton = layout(UIButton()) { make in
             make.height.equalTo(buttonHeight)
             make.width.equalTo(buttonWidth)
             make.bottom.equalTo(view.bottom).offset(-buttonsBottomOffser)
-            make.centerX.equalToSuperview().offset(-margin * 3)
+            make.centerX.equalToSuperview().offset(-centerXOffset)
         }
 
         pauseRecordButton = layout(UIButton()) { make in
             make.height.equalTo(buttonHeight)
             make.width.equalTo(buttonWidth)
             make.bottom.equalTo(view.bottom).offset(-buttonsBottomOffser)
-            make.centerX.equalToSuperview().offset(margin * 3)
+            make.centerX.equalToSuperview().offset(centerXOffset)
         }
     }
 

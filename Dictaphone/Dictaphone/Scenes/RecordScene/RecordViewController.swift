@@ -35,6 +35,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
         super.viewDidLoad()
 
         recordView.stopRecordButton.isHidden = true
+        recordView.pauseRecordButton.isHidden = true
         startRecordButtonBind()
         stopRecordButtonBind()
         pauseBind()
@@ -49,6 +50,7 @@ private extension RecordViewController {
             self.recordModel.recordAudio()
             self.recordView.startRecordButton.isHidden = true
             self.recordView.stopRecordButton.isHidden = false
+            self.recordView.pauseRecordButton.isHidden = false
         }
         .disposed(by: disposeBag)
     }
@@ -58,6 +60,7 @@ private extension RecordViewController {
             self.recordModel.stopRecordingAudio()
             self.recordView.startRecordButton.isHidden = false
             self.recordView.stopRecordButton.isHidden = true
+            self.recordView.pauseRecordButton.isHidden = true
         }
         .disposed(by: disposeBag)
     }
