@@ -50,7 +50,6 @@ class RecordModel: NSObject, AVAudioRecorderDelegate {
         let recordingName = formatter.string(from: currentDateTime)+".m4a"
         let filePath = URL(string: "\(dirPath)/\(recordingName)")!
 
-        print(filePath)
         return filePath
     }
 }
