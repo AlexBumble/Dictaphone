@@ -41,7 +41,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
     }
 }
 
-// MARK: Rx SetUp
+// MARK: Rx Setup
 
 private extension RecordViewController {
 

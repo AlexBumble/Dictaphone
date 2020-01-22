@@ -10,6 +10,7 @@ import UIKit
 
 class RecordView: UIView {
 
+    //View components 
     var startRecordButton: UIButton!
     var stopRecordButton: UIButton!
     var pauseRecordButton: UIButton!

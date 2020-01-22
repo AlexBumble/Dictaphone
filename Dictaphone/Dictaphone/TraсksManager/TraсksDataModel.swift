@@ -1,5 +1,5 @@
 //
-//  RecordedAudio.swift
+//  TracksDataModel.swift
 //  Dictaphone
 //
 //  Created by Алексей Бузов on 22.01.2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct AudioDataModel {
+struct TracksDataModel {
     let filePathUrl: URL
     let title: String
 }

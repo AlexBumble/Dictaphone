@@ -20,9 +20,11 @@
 		816701A623D84395002526D6 /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816701A523D84395002526D6 /* RecordModel.swift */; };
 		816701A923D84C98002526D6 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 816701A823D84C98002526D6 /* RxSwift */; };
 		816701AB23D84C98002526D6 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 816701AA23D84C98002526D6 /* RxCocoa */; };
-		81D1A6C023D85BE100531453 /* AudioStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1A6BF23D85BE100531453 /* AudioStorageManager.swift */; };
-		81D1A6C223D85C0900531453 /* AudioDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1A6C123D85C0900531453 /* AudioDataModel.swift */; };
+		81D1A6C023D85BE100531453 /* TraсksStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1A6BF23D85BE100531453 /* TraсksStorageManager.swift */; };
+		81D1A6C223D85C0900531453 /* TraсksDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1A6C123D85C0900531453 /* TraсksDataModel.swift */; };
 		81D1A6C523D868AA00531453 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D1A6C423D868AA00531453 /* AVFoundation.framework */; };
+		81D1A6C723D885D900531453 /* TracksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1A6C623D885D900531453 /* TracksView.swift */; };
+		81D1A6C923D8876500531453 /* TracksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1A6C823D8876500531453 /* TracksCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,9 +40,11 @@
 		816701A123D825FB002526D6 /* UIView + SnapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + SnapKit.swift"; sourceTree = "<group>"; };
 		816701A323D8284A002526D6 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		816701A523D84395002526D6 /* RecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
-		81D1A6BF23D85BE100531453 /* AudioStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStorageManager.swift; sourceTree = "<group>"; };
-		81D1A6C123D85C0900531453 /* AudioDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDataModel.swift; sourceTree = "<group>"; };
+		81D1A6BF23D85BE100531453 /* TraсksStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TraсksStorageManager.swift"; sourceTree = "<group>"; };
+		81D1A6C123D85C0900531453 /* TraсksDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TraсksDataModel.swift"; sourceTree = "<group>"; };
 		81D1A6C423D868AA00531453 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		81D1A6C623D885D900531453 /* TracksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksView.swift; sourceTree = "<group>"; };
+		81D1A6C823D8876500531453 /* TracksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +82,7 @@
 		8167017D23D8109D002526D6 /* Dictaphone */ = {
 			isa = PBXGroup;
 			children = (
-				81D1A6BE23D85BBD00531453 /* RecordManager */,
+				81D1A6BE23D85BBD00531453 /* TraсksManager */,
 				816701A023D825C0002526D6 /* Extensions */,
 				8167019A23D822F9002526D6 /* Scenes */,
 				8167017E23D8109D002526D6 /* AppDelegate.swift */,
@@ -93,7 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				8167019B23D8237C002526D6 /* RecordScene */,
-				8167019C23D823B8002526D6 /* TraksScene */,
+				8167019C23D823B8002526D6 /* TracksScene */,
 				8167019223D81330002526D6 /* RootViewController .swift */,
 				8167019423D816D0002526D6 /* DictaphoneTabBarController.swift */,
 			);
@@ -110,12 +114,14 @@
 			path = RecordScene;
 			sourceTree = "<group>";
 		};
-		8167019C23D823B8002526D6 /* TraksScene */ = {
+		8167019C23D823B8002526D6 /* TracksScene */ = {
 			isa = PBXGroup;
 			children = (
+				81D1A6C623D885D900531453 /* TracksView.swift */,
+				81D1A6C823D8876500531453 /* TracksCell.swift */,
 				8167019823D81C4A002526D6 /* TracksViewController.swift */,
 			);
-			path = TraksScene;
+			path = TracksScene;
 			sourceTree = "<group>";
 		};
 		816701A023D825C0002526D6 /* Extensions */ = {
@@ -126,13 +132,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		81D1A6BE23D85BBD00531453 /* RecordManager */ = {
+		81D1A6BE23D85BBD00531453 /* TraсksManager */ = {
 			isa = PBXGroup;
 			children = (
-				81D1A6BF23D85BE100531453 /* AudioStorageManager.swift */,
-				81D1A6C123D85C0900531453 /* AudioDataModel.swift */,
+				81D1A6BF23D85BE100531453 /* TraсksStorageManager.swift */,
+				81D1A6C123D85C0900531453 /* TraсksDataModel.swift */,
 			);
-			path = RecordManager;
+			path = "TraсksManager";
 			sourceTree = "<group>";
 		};
 		81D1A6C323D868AA00531453 /* Frameworks */ = {
@@ -222,12 +228,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81D1A6C023D85BE100531453 /* AudioStorageManager.swift in Sources */,
+				81D1A6C023D85BE100531453 /* TraсksStorageManager.swift in Sources */,
 				8167019923D81C4A002526D6 /* TracksViewController.swift in Sources */,
 				8167019523D816D0002526D6 /* DictaphoneTabBarController.swift in Sources */,
+				81D1A6C723D885D900531453 /* TracksView.swift in Sources */,
 				8167019323D81330002526D6 /* RootViewController .swift in Sources */,
-				81D1A6C223D85C0900531453 /* AudioDataModel.swift in Sources */,
+				81D1A6C223D85C0900531453 /* TraсksDataModel.swift in Sources */,
 				816701A423D8284A002526D6 /* RecordView.swift in Sources */,
+				81D1A6C923D8876500531453 /* TracksCell.swift in Sources */,
 				8167019723D81C29002526D6 /* RecordViewController.swift in Sources */,
 				816701A623D84395002526D6 /* RecordModel.swift in Sources */,
 				8167017F23D8109D002526D6 /* AppDelegate.swift in Sources */,
