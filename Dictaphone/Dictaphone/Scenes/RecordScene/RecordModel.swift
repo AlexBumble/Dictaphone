@@ -6,52 +6,66 @@
 //  Copyright © 2020 Alexey Buzov. All rights reserved.
 //
 
-//import Foundation
-//import AVFoundation
-//
-//struct RecordedAudio {
-//    let filePathUrl: URL
-//    let title: String
-//}
-//
-//
-//class RecordManager {
-//
-//    static func timestampedFilePath() -> URL {
-//        let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-//        let currentDateTime = Date()
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "ddMMyyyy-HHmmss"
-//        let recordingName = formatter.string(from: currentDateTime)+".m4a"
-//        let filePath = URL(string: "\(dirPath)/\(recordingName)")!
-//
-//        return filePath
-//    }
-//
-//    var dirPath: String {
-//        return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-//    }
-//
-//    var fileList: [String]! {
-//        let manager = FileManager.default
-//        let files = try! manager.contentsOfDirectory(atPath: dirPath)
-//        return files.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedDescending }
-//    }
-//
-//    var count: Int {
-//        get {
-//           return fileList.count
-//        }
-//    }
-//
-//    func getFile(atIndex index: Int) -> RecordedAudio {
-//        let filePath = URL(string: "\(dirPath)/\(fileList[index])")
-//        let title = fileList[index]
-//        return RecordedAudio(filePathUrl: filePath!, title: title)
-//    }
-//
-//    func deleteFile(atIndex index: Int) {
-//        let filePath = URL(fileURLWithPath: "\(dirPath)/\(fileList[index])")
-//        try! FileManager.default.removeItem(at: filePath)
-//    }
-//}
+import Foundation
+import AVFoundation
+
+
+protocol Recording {
+    func recordAudio()
+    func stopRecordingAudio()
+}
+
+class RecordModel: NSObject, AVAudioRecorderDelegate {
+
+    private var audioRecorder: AVAudioRecorder!
+
+    override init() {
+        super.init()
+        self.audioRecorder = makeAudioRecorder(URL(fileURLWithPath:"/dev/null"))
+        audioRecorder.record()
+    }
+
+    func makeAudioRecorder(_ filePath: URL) -> AVAudioRecorder {
+        let recorderSettings: [String : AnyObject] = [
+            AVSampleRateKey: 44100.0 as AnyObject,
+            AVFormatIDKey: NSNumber(value: kAudioFormatMPEG4AAC),
+            AVNumberOfChannelsKey: 2 as AnyObject,
+            AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue as AnyObject
+        ]
+
+        try! AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: [])
+
+        let audioRecorder = try! AVAudioRecorder(url: filePath, settings: recorderSettings)
+        audioRecorder.isMeteringEnabled = true
+        audioRecorder.prepareToRecord()
+
+        return audioRecorder
+    }
+
+    func timestampedFilePath() -> URL {
+        let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let currentDateTime = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "ddMMyyyy-HHmmss"
+        let recordingName = formatter.string(from: currentDateTime)+".m4a"
+        let filePath = URL(string: "\(dirPath)/\(recordingName)")!
+
+        print(filePath)
+        return filePath
+    }
+}
+
+extension RecordModel: Recording {
+
+    func recordAudio() {
+        audioRecorder.stop()
+        audioRecorder = makeAudioRecorder(timestampedFilePath())
+        audioRecorder.delegate = self
+        audioRecorder.record()
+    }
+
+    func stopRecordingAudio() {
+        audioRecorder.stop()
+        try! AVAudioSession.sharedInstance().setActive(false)
+    }
+}

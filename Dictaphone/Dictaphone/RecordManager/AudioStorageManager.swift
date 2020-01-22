@@ -1,5 +1,5 @@
 //
-//  StorageManager.swift
+//  AudioStorageManager.swift
 //  Dictaphone
 //
 //  Created by Алексей Бузов on 22.01.2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StorageManager {
+class AudioStorageManager {
 
     var dirPath: String {
         return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -26,10 +26,10 @@ class StorageManager {
         }
     }
 
-    func getFile(atIndex index: Int) -> RecordedAudio {
+    func getFile(atIndex index: Int) -> AudioDataModel {
         let filePath = URL(string: "\(dirPath)/\(fileList[index])")
         let title = fileList[index]
-        return RecordedAudio(filePathUrl: filePath!, title: title)
+        return AudioDataModel(filePathUrl: filePath!, title: title)
     }
 
     func deleteFile(atIndex index: Int) {

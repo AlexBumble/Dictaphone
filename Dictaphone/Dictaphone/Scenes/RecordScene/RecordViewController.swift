@@ -13,12 +13,13 @@ import RxCocoa
 
 class RecordViewController: UIViewController, AVAudioRecorderDelegate {
 
-    var recordView: RecordView!
-    var audioRecorder: AVAudioRecorder!
+    private var recordView: RecordView!
+    private var recordModel: Recording!
     private let disposeBag = DisposeBag()
 
-    init() {
+    init(recordModel: Recording = RecordModel()) {
         super.init(nibName: nil, bundle: nil)
+        self.recordModel = recordModel
     }
 
     required init?(coder: NSCoder) {
@@ -36,41 +37,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
         recordView.stopRecordButton.isHidden = true
         startRecordButtonBind()
         stopRecordButtonBind()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        audioRecorder = audioRecorder(URL(fileURLWithPath:"/dev/null"))
-        audioRecorder.record()
-    }
-
-    func recordAudio() {
-        audioRecorder.stop()
-        audioRecorder = audioRecorder(RecordModel.timestampedFilePath())
-        audioRecorder.delegate = self
-        audioRecorder.record()
-    }
-
-    func stopRecordingAudio() {
-        audioRecorder.stop()
-        try! AVAudioSession.sharedInstance().setActive(false)
-    }
-
-    func audioRecorder(_ filePath: URL) -> AVAudioRecorder {
-        let recorderSettings: [String : AnyObject] = [
-            AVSampleRateKey: 44100.0 as AnyObject,
-            AVFormatIDKey: NSNumber(value: kAudioFormatMPEG4AAC),
-            AVNumberOfChannelsKey: 2 as AnyObject,
-            AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue as AnyObject
-        ]
-
-
-        try! AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: [])
-
-        let audioRecorder = try! AVAudioRecorder(url: filePath, settings: recorderSettings)
-        audioRecorder.isMeteringEnabled = true
-        audioRecorder.prepareToRecord()
-
-        return audioRecorder
+        pauseBind()
     }
 }
 
@@ -80,7 +47,7 @@ private extension RecordViewController {
 
     func startRecordButtonBind() {
         recordView.startRecordButton.rx.tap.bind {
-            self.recordAudio()
+            self.recordModel.recordAudio()
             self.recordView.startRecordButton.isHidden = true
             self.recordView.stopRecordButton.isHidden = false
         }
@@ -89,9 +56,16 @@ private extension RecordViewController {
 
     func stopRecordButtonBind() {
         recordView.stopRecordButton.rx.tap.bind {
-            self.stopRecordingAudio()
+            self.recordModel.stopRecordingAudio()
             self.recordView.startRecordButton.isHidden = false
             self.recordView.stopRecordButton.isHidden = true
+        }
+        .disposed(by: disposeBag)
+    }
+
+    func pauseBind() {
+        recordView.pauseRecordButton.rx.tap.bind {
+            //ToDo
         }
         .disposed(by: disposeBag)
     }

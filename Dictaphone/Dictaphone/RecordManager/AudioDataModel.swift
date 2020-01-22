@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RecordedAudio {
+struct AudioDataModel {
     let filePathUrl: URL
     let title: String
 }
