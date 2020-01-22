@@ -88,7 +88,7 @@ private extension RecordViewController {
     }
 
     func resumeBind() {
-        recordView.pauseRecordButton.rx.tap.bind {
+        recordView.resumeRecordButton.rx.tap.bind {
             self.recordView.resumeRecordButton.isHidden = true
             self.recordView.pauseRecordButton.isHidden = false
         }
