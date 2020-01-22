@@ -14,8 +14,7 @@ class TracksCell: UITableViewCell {
 
     //View components 
     var nameLabel: UILabel!
-    var playButton: UIButton!
-    var stopButton: UIButton!
+    var playImageView: UIImageView!
 
     // Layout Propertise
     private var margin: CGFloat = 16
@@ -34,13 +33,7 @@ class TracksCell: UITableViewCell {
 
     func layoutContent(in: UIView) {
 
-        playButton = layout(UIButton()) { make in
-            make.top.equalToSuperview().offset(margin)
-            make.trailing.bottom.equalToSuperview().offset(-margin)
-            make.height.width.equalTo(buttonSideValue)
-        }
-
-        stopButton = layout(UIButton()) { make in
+        playImageView = layout(UIImageView()) { make in
             make.top.equalToSuperview().offset(margin)
             make.trailing.bottom.equalToSuperview().offset(-margin)
             make.height.width.equalTo(buttonSideValue)
@@ -49,7 +42,7 @@ class TracksCell: UITableViewCell {
         nameLabel = layout(UILabel()) { make in
             make.top.leading.equalToSuperview().offset(margin)
             make.bottom.equalToSuperview().offset(-margin)
-            make.trailing.equalTo(playButton.leading).offset(-margin)
+            make.trailing.equalTo(playImageView.leading).offset(-margin)
         }
 
     }
@@ -59,8 +52,7 @@ class TracksCell: UITableViewCell {
     }
 
     func applyStyle() {
-        playButton.setBackgroundImage(Theme.startButton, for: .normal)
-        stopButton.setBackgroundImage(Theme.startButton, for: .normal)
+        playImageView.image = Theme.startButton
     }
 }
 
