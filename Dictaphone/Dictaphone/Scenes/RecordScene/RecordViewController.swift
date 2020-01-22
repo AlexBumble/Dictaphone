@@ -50,6 +50,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
     func startRecord() {
         recordModel.recordAudio()
         recordView.startRecordButton.isHidden = true
+        recordView.resumeRecordButton.isHidden = true
         recordView.stopRecordButton.isHidden = false
         recordView.pauseRecordButton.isHidden = false
     }
@@ -59,6 +60,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
         recordView.startRecordButton.isHidden = false
         recordView.stopRecordButton.isHidden = true
         recordView.pauseRecordButton.isHidden = true
+        recordView.resumeRecordButton.isHidden = true
     }
 }
 
