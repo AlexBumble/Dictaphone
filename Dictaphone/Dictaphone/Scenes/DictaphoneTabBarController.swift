@@ -31,8 +31,8 @@ class DictaphoneTabBarController: TabBarConfiguration {
 
         window.rootViewController = tabBar
 
-        addViewController(to: recordNavigationController, viewController: TracksViewController())
-        addViewController(to: tracksNavigationController, viewController: RecordViewController())
+        addViewController(to: recordNavigationController, viewController: RecordViewController())
+        addViewController(to: tracksNavigationController, viewController: TracksViewController())
     }
 
     
