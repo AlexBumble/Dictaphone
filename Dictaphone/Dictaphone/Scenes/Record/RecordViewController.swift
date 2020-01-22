@@ -10,6 +10,8 @@ import UIKit
 
 class RecordViewController: UIViewController {
 
+    var recordView: RecordView!
+
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -19,7 +21,8 @@ class RecordViewController: UIViewController {
     }
 
     override func loadView() {
-        //ToDo
+        recordView = RecordView()
+        view = recordView
     }
     
     override func viewDidLoad() {
