@@ -8,18 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		8167017F23D8109D002526D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167017E23D8109D002526D6 /* AppDelegate.swift */; };
-		8167018323D8109D002526D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167018223D8109D002526D6 /* ViewController.swift */; };
 		8167018823D8109E002526D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8167018723D8109E002526D6 /* Assets.xcassets */; };
 		8167018B23D8109E002526D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8167018923D8109E002526D6 /* LaunchScreen.storyboard */; };
+		8167019323D81330002526D6 /* RootViewController .swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167019223D81330002526D6 /* RootViewController .swift */; };
+		8167019523D816D0002526D6 /* DictaphoneTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167019423D816D0002526D6 /* DictaphoneTabBarController.swift */; };
+		8167019723D81C29002526D6 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167019623D81C29002526D6 /* RecordViewController.swift */; };
+		8167019923D81C4A002526D6 /* TracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167019823D81C4A002526D6 /* TracksViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8167017B23D8109D002526D6 /* Dictaphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dictaphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8167017E23D8109D002526D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8167018223D8109D002526D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8167018723D8109E002526D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8167018A23D8109E002526D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8167018C23D8109E002526D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8167019223D81330002526D6 /* RootViewController .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootViewController .swift"; sourceTree = "<group>"; };
+		8167019423D816D0002526D6 /* DictaphoneTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictaphoneTabBarController.swift; sourceTree = "<group>"; };
+		8167019623D81C29002526D6 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		8167019823D81C4A002526D6 /* TracksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,13 +58,40 @@
 		8167017D23D8109D002526D6 /* Dictaphone */ = {
 			isa = PBXGroup;
 			children = (
+				8167019A23D822F9002526D6 /* Scenes */,
 				8167017E23D8109D002526D6 /* AppDelegate.swift */,
-				8167018223D8109D002526D6 /* ViewController.swift */,
 				8167018723D8109E002526D6 /* Assets.xcassets */,
 				8167018923D8109E002526D6 /* LaunchScreen.storyboard */,
 				8167018C23D8109E002526D6 /* Info.plist */,
 			);
 			path = Dictaphone;
+			sourceTree = "<group>";
+		};
+		8167019A23D822F9002526D6 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				8167019B23D8237C002526D6 /* Record */,
+				8167019C23D823B8002526D6 /* Traks */,
+				8167019223D81330002526D6 /* RootViewController .swift */,
+				8167019423D816D0002526D6 /* DictaphoneTabBarController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		8167019B23D8237C002526D6 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				8167019623D81C29002526D6 /* RecordViewController.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		8167019C23D823B8002526D6 /* Traks */ = {
+			isa = PBXGroup;
+			children = (
+				8167019823D81C4A002526D6 /* TracksViewController.swift */,
+			);
+			path = Traks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,7 +164,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8167018323D8109D002526D6 /* ViewController.swift in Sources */,
+				8167019923D81C4A002526D6 /* TracksViewController.swift in Sources */,
+				8167019523D816D0002526D6 /* DictaphoneTabBarController.swift in Sources */,
+				8167019323D81330002526D6 /* RootViewController .swift in Sources */,
+				8167019723D81C29002526D6 /* RecordViewController.swift in Sources */,
 				8167017F23D8109D002526D6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
