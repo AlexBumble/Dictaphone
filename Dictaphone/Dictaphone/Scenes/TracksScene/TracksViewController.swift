@@ -7,14 +7,10 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 class TracksViewController: UIViewController {
 
     private var tracksView: TracksView!
-    private let disposeBag = DisposeBag()
-    private let traks = Observable.just(TracksStorageManager.fileList)
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -36,6 +32,10 @@ class TracksViewController: UIViewController {
         tracksView.tableView.delegate = self
         tracksView.tableView.dataSource = self
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        tracksView.tableView.reloadData()
+    }
 }
 
 
@@ -49,5 +49,9 @@ extension TracksViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: TracksCell.identifier, for: indexPath) as! TracksCell
         cell.nameLabel.text = TracksStorageManager.getFile(atIndex: indexPath.row).title
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return TracksCell.cellHeight
     }
 }
