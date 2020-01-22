@@ -11,8 +11,8 @@ import UIKit
 class RecordView: UIView {
 
     var startRecordButton: UIButton!
-    var stopRecord: UIButton!
-    var pauseRecord: UIButton!
+    var stopRecordButton: UIButton!
+    var pauseRecordButton: UIButton!
 
     // Layout Propertise
     private var buttonHeight: CGFloat = 70
@@ -39,14 +39,14 @@ class RecordView: UIView {
             make.centerX.equalToSuperview().offset(-margin * 3)
         }
 
-        stopRecord = layout(UIButton()) { make in
+        stopRecordButton = layout(UIButton()) { make in
             make.height.equalTo(buttonHeight)
             make.width.equalTo(buttonWidth)
             make.bottom.equalTo(view.bottom).offset(-buttonsBottomOffser)
             make.centerX.equalToSuperview().offset(-margin * 3)
         }
 
-        pauseRecord = layout(UIButton()) { make in
+        pauseRecordButton = layout(UIButton()) { make in
             make.height.equalTo(buttonHeight)
             make.width.equalTo(buttonWidth)
             make.bottom.equalTo(view.bottom).offset(-buttonsBottomOffser)
@@ -57,8 +57,8 @@ class RecordView: UIView {
     func applyStyle() {
         self.backgroundColor = .white
         startRecordButton.setBackgroundImage(UIImage(named: "Start"), for: .normal)
-        stopRecord.setBackgroundImage(UIImage(named: "Stop"), for: .normal)
-        pauseRecord.setBackgroundImage(UIImage(named: "Pause"), for: .normal)
+        stopRecordButton.setBackgroundImage(UIImage(named: "Stop"), for: .normal)
+        pauseRecordButton.setBackgroundImage(UIImage(named: "Pause"), for: .normal)
 
     }
 }
