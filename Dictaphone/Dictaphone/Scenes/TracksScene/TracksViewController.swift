@@ -59,7 +59,7 @@ extension TracksViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TracksCell.identifier, for: indexPath) as! TracksCell
-        cell.nameLabel.text = TracksStorageManager.getFile(atIndex: indexPath.row).title
+        cell.nameLabel.text = TracksStorageManager.getFile(atIndex: indexPath.row).readableTitile
         return cell
     }
 

@@ -43,24 +43,13 @@ class RecordModel: NSObject, AVAudioRecorderDelegate {
 
         return audioRecorder
     }
-
-    func timestampedFilePath() -> URL {
-        let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let currentDateTime = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "ddMMyyyy-HHmmss"
-        let recordingName = formatter.string(from: currentDateTime)+".m4a"
-        let filePath = URL(string: "\(dirPath)/\(recordingName)")!
-
-        return filePath
-    }
 }
 
 extension RecordModel: Recording {
 
     func recordAudio() {
         audioRecorder.stop()
-        audioRecorder = makeAudioRecorder(timestampedFilePath())
+        audioRecorder = makeAudioRecorder(TracksDataModel.timestampedFilePath())
         audioRecorder.delegate = self
         audioRecorder.record()
     }
