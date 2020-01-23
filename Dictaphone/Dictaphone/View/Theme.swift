@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Enum that contains interface preferences depend on UIUserInterfaceStyle
 enum Theme {
 
     case light

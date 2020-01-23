@@ -32,7 +32,12 @@ class TraksPlayer: Player {
             audioPlayer = try AVAudioPlayer(contentsOf: recordedTrack.filePathUrl)
         }
         catch {
-            // ToDo Error
+            print(
+                """
+                Audio player can't initializes with sound file: \(recordedTrack.filePathUrl).
+                Error in: \(#function) of file \(#file)
+                """
+            )
         }
         audioPlayer.prepareToPlay()
     }

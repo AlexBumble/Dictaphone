@@ -88,7 +88,7 @@
 			children = (
 				81D1A6CA23D8975C00531453 /* View */,
 				81D1A6BE23D85BBD00531453 /* TraсksManager */,
-				816701A023D825C0002526D6 /* Extensions */,
+				816701A023D825C0002526D6 /* Services */,
 				8167019A23D822F9002526D6 /* Scenes */,
 				8167017E23D8109D002526D6 /* AppDelegate.swift */,
 				8167018723D8109E002526D6 /* Assets.xcassets */,
@@ -130,12 +130,12 @@
 			path = TracksScene;
 			sourceTree = "<group>";
 		};
-		816701A023D825C0002526D6 /* Extensions */ = {
+		816701A023D825C0002526D6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				816701A123D825FB002526D6 /* UIView + SnapKit.swift */,
 			);
-			path = Extensions;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		81D1A6BE23D85BBD00531453 /* TraсksManager */ = {

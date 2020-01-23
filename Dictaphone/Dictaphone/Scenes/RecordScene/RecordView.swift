@@ -25,6 +25,8 @@ class RecordView: UIView {
     init() {
         super.init(frame: .zero)
 
+        // ToDo refactor: This view load before AppDelegate applicationDidBecomeActive change theme
+        // Need to look at debug and fix the hook
         let appDelegate = AppDelegate.shared()
         let interfaceStyle = appDelegate.window?.traitCollection.userInterfaceStyle
         Theme.setTheme(interfaceStyle: interfaceStyle)

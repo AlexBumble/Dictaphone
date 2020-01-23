@@ -16,7 +16,8 @@ extension UIView {
 }
 
 extension UIView {
-    
+
+    /// Adding subview and layout them 
     func layout<T: UIView>(
         _ subview: T,
         _ closure: (ConstraintMaker) -> Void) -> T

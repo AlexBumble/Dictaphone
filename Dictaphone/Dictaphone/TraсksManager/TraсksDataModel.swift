@@ -8,9 +8,24 @@
 
 import Foundation
 
+/**
+Struct that contains storaged audio tracks
+
+ **Parameters**
+
+ filePathUrl - addres of file in storage
+
+ title - file name path of filePathUrl
+
+ readableTitile - readable title
+ */
+/// - Tag: TracksDataModel
 struct TracksDataModel {
+
     let filePathUrl: URL
     let title: String
+
+    /// Return file name in humman redable formate "dd.MM.yyyy HH:mm:ss"
     var readableTitile: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "ddMMyyyy-HHmmss"
@@ -24,6 +39,7 @@ struct TracksDataModel {
 
 extension TracksDataModel {
 
+    /// Return file name with current date in formate like "ddMMyyyy-HHmmss" + ".m4a"
     static func timestampedFilePath() -> URL {
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let currentDateTime = Date()
