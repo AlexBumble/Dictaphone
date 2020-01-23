@@ -7,14 +7,8 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
-
 
 class RecordView: UIView {
-    //Observable Theme
-    private var theme = Observable.just(Theme.current)
-    private let disposeBag = DisposeBag()
 
     //View components 
     var startRecordButton: UIButton!
@@ -30,8 +24,8 @@ class RecordView: UIView {
 
     init() {
         super.init(frame: .zero)
+        self.backgroundColor = Theme.backgroundColor
         layoutContent(in: self)
-        setupTheme()
         applyStyle()
     }
 
@@ -72,16 +66,5 @@ class RecordView: UIView {
         pauseRecordButton.setBackgroundImage(Theme.pauseRecordButton, for: .normal)
         resumeRecordButton.setBackgroundImage(Theme.startButton, for: .normal)
 
-    }
-}
-
-// MARK: Rx Setup
-extension RecordView {
-    func setupTheme() {
-        theme
-            .subscribe(onNext: { theme in
-                self.applyStyle()
-            })
-            .disposed(by: disposeBag)
     }
 }

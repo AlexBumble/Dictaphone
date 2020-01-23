@@ -20,6 +20,7 @@ class TracksView: UIView {
         super.init(frame: .zero)
         layoutContent(in: self)
         emptyLabelText()
+        self.backgroundColor = Theme.backgroundColor
     }
 
     required init?(coder: NSCoder) {

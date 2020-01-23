@@ -13,6 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    // Singleton
+    static func shared() -> AppDelegate {
+      return UIApplication.shared.delegate as! AppDelegate
+    }
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         let rootController: RootControllerInitialization = RootViewController()
@@ -20,10 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 
         return true
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        Theme.setTheme(interfaceStyle: window?.traitCollection.userInterfaceStyle)
     }
 }
 

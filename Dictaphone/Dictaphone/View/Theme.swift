@@ -13,7 +13,14 @@ enum Theme {
     case light
     case dark
 
-    static var current: Theme = .dark
+    static var current: Theme = setTheme()
+
+    static var backgroundColor: UIColor {
+        switch current {
+        case .light: return .white
+        case .dark: return .black
+        }
+    }
 
     static var startButton: UIImage? {
         switch current {
@@ -50,10 +57,12 @@ enum Theme {
         }
     }
 
-    static func setTheme(interfaceStyle: UIUserInterfaceStyle?) {
+    static func setTheme() -> Theme {
+        let appDelegate = AppDelegate.shared()
+        let interfaceStyle = appDelegate.window?.traitCollection.userInterfaceStyle
         switch interfaceStyle {
-        case .light, .unspecified: Theme.current = .light
-        default: Theme.current = .dark
+        case .light, .unspecified: return .light
+        default: return .dark
         }
     }
 }

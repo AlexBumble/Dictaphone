@@ -34,6 +34,7 @@ class TraksPlayer: Player {
         catch {
             // ToDo Error
         }
+        audioPlayer.prepareToPlay()
     }
 }
 
