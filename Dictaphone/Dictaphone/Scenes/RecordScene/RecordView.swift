@@ -24,6 +24,11 @@ class RecordView: UIView {
 
     init() {
         super.init(frame: .zero)
+
+        let appDelegate = AppDelegate.shared()
+        let interfaceStyle = appDelegate.window?.traitCollection.userInterfaceStyle
+        Theme.setTheme(interfaceStyle: interfaceStyle)
+        
         self.backgroundColor = Theme.backgroundColor
         layoutContent(in: self)
         applyStyle()

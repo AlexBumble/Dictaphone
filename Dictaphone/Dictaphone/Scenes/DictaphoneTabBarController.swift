@@ -17,10 +17,10 @@ class DictaphoneTabBarController: TabBarConfiguration {
 
     func configurateTabBar(in window: UIWindow) {
         let recordNavigationController = UINavigationController()
-        recordNavigationController.tabBarItem = UITabBarItem(title: "Record", image: nil, selectedImage: nil)
+        recordNavigationController.tabBarItem = UITabBarItem(title: "Record", image: Theme.addRecord, selectedImage: nil)
 
         let tracksNavigationController = UINavigationController()
-        tracksNavigationController.tabBarItem = UITabBarItem(title: "Tracks", image: nil, selectedImage: nil)
+        tracksNavigationController.tabBarItem = UITabBarItem(title: "Tracks", image:Theme.startButton, selectedImage: nil)
 
         let tabBar = UITabBarController()
 

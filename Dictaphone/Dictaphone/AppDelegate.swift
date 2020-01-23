@@ -26,5 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        Theme.setTheme(interfaceStyle: window?.traitCollection.userInterfaceStyle)
+    }
 }
 
