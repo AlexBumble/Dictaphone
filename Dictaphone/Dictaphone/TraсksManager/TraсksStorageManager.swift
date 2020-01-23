@@ -17,7 +17,7 @@ class TracksStorageManager {
 
     static var fileList: [String]! {
         let manager = FileManager.default
-        let files = try! manager.contentsOfDirectory(atPath: dirPath)
+        let files = try! manager.contentsOfDirectory(atPath: dirPath) // ToDo Error
         return files.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedDescending }
     }
 
@@ -35,6 +35,6 @@ class TracksStorageManager {
 
     static func deleteFile(atIndex index: Int) {
         let filePath = URL(fileURLWithPath: "\(dirPath)/\(fileList[index])")
-        try! FileManager.default.removeItem(at: filePath)
+        try! FileManager.default.removeItem(at: filePath) // ToDo Error
     }
 }

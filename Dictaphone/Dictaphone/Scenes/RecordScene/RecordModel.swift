@@ -35,9 +35,9 @@ class RecordModel: NSObject, AVAudioRecorderDelegate {
             AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue as AnyObject
         ]
 
-        try! AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: [])
+        try! AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: []) // ToDo Error
 
-        let audioRecorder = try! AVAudioRecorder(url: filePath, settings: recorderSettings)
+        let audioRecorder = try! AVAudioRecorder(url: filePath, settings: recorderSettings) // ToDo Error
         audioRecorder.isMeteringEnabled = true
         audioRecorder.prepareToRecord()
 
@@ -56,7 +56,7 @@ extension RecordModel: Recording {
 
     func stopRecordingAudio() {
         audioRecorder.stop()
-        try! AVAudioSession.sharedInstance().setActive(false)
+        try! AVAudioSession.sharedInstance().setActive(false) // ToDo Error
     }
 
     func pauseRecordingAudio() {

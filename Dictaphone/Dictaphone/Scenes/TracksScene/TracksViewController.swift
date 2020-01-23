@@ -11,6 +11,7 @@ import UIKit
 class TracksViewController: UIViewController {
 
     private var tracksView: TracksView!
+    private let player: Player = TraksPlayer()
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -37,6 +38,10 @@ class TracksViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         isNeedToShowEmptyLable()
         tracksView.tableView.reloadData()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        player.stop()
     }
 
     func isNeedToShowEmptyLable() {
@@ -68,10 +73,18 @@ extension TracksViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        player.stop()
         if editingStyle == .delete {
             TracksStorageManager.deleteFile(atIndex: indexPath.row)
             self.tracksView.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         isNeedToShowEmptyLable()
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        player.stop()
+        let track = TracksStorageManager.getFile(atIndex: indexPath.row)
+        player.addTrack(recordedTrack: track)
+        player.play()
     }
 }
